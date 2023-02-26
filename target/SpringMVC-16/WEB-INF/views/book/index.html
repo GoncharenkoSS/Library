@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOKS</title>
+</head>
+<body>
+<style th:inline="css">.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #fff;
+    font-size: 1.2rem;
+    background: #00008b;
+}
+</style>
+<h1 class="title">List books name</h1>
+<br/>
+<div  th:each="bb : ${book}">
+    <a th:href="@{/book/{id}(id=${bb.getId()})}"
+       th:text="${bb.getName() + ' (Author: ' + bb.getAuthor() + ')/( Year: ' + bb.getYear() + ')'}">user</a>
+    <hr/>
+</div>
+
+<br/>
+<hr/>
+<div class="title">
+<form th:method="GET" th:action="@{/book/new}">
+    <button>Create new book</button>
+</form>
+<b>   </b>
+<form th:method="GET" th:action="@{/people}">
+    <button>People browsing</button>
+</form>
+</div>
+
+</body>
+</html>
