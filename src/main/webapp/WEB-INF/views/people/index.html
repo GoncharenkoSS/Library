@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>ALL PEOPLE</title>
 </head>
 <body>
-
-<h2>List person name</h2>
+<style th:inline="css">.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: #fff;
+    font-size: 1.8rem;
+    background: #00008b;
+}
+</style>
+<h1 class="title">List person name</h1>
 
 <div th:each="person : ${people}">
     <a th:href="@{/people/{id}(id=${person.getId()})}"
        th:text="${person.getName() + ' (Year: ' + person.getYear() + ')'}">user</a>
+    <hr/>
 </div>
 
 <br/>
 <hr/>
-
+<div class="title">
 <form th:method="GET" th:action="@{/people/new}">
     <button>Create new person</button>
 </form>
-<br/>
+    <b>   </b>
 <form th:method="GET" th:action="@{/book}">
     <button>Library browsing</button>
 </form>
+</div>
 
 </body>
 </html>
