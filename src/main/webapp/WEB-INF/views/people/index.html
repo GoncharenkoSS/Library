@@ -17,8 +17,11 @@
 </style>
 <h1 class="title">List person name</h1>
 
+
+
 <div th:each="person : ${people}">
-    <a th:href="@{/people/{id}(id=${person.getId()})}"
+    <a><img src="https://avatars.mds.yandex.net/i?id=fe97f6492f02023709886ee14c4861219f232a66-8209870-images-thumbs&n=13"
+            alt="Image here" width="30" height="30"></a> <a th:href="@{/people/{id}(id=${person.getId()})}"
        th:text="${person.getName() + ' (Year: ' + person.getYear() + ')'}">user</a>
     <hr/>
 </div>

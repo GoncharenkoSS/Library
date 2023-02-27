@@ -18,7 +18,8 @@
 <h1 class="title">List books name</h1>
 <br/>
 <div  th:each="bb : ${book}">
-    <a th:href="@{/book/{id}(id=${bb.getId()})}"
+    <a><img src="https://klike.net/uploads/posts/2021-10/1635141742_1.jpg"
+            alt="Image here" width="30" height="30"></a><a th:href="@{/book/{id}(id=${bb.getId()})}"
        th:text="${bb.getName() + ' (Author: ' + bb.getAuthor() + ')/( Year: ' + bb.getYear() + ')'}">user</a>
     <hr/>
 </div>
